@@ -1,8 +1,7 @@
 <?php
-// echo '<pre>';
-// var_dump($_POST);
-// echo '</pre>';
-// exit();
+//DB接続関数読み込み
+include('./functions/connect_to_db.php');
+
 
 if (
     !isset($_POST['name']) || $_POST['name'] == '' ||
@@ -16,16 +15,8 @@ $name = $_POST['name'];
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-$dbn = 'mysql:dbname=kadai;charset=utf8mb4;port=3306;host=localhost';
-$user = 'root';
-$pwd = '';
-
-try {
-    $pdo = new PDO($dbn, $user, $pwd);
-} catch (PDOException $e) {
-    echo json_encode(["db error" => "{$e->getMessage()}"]);
-    exit();
-}
+//関数定義ファイルから関数呼び出す
+$pdo = connect_to_db();
 
 $sql = 'INSERT INTO seller_users (id, name, email, password, created_time, update_time) VALUES (NULL, :name ,:email, :password, now(), now())';
 
