@@ -1,4 +1,6 @@
 <?php
+//DB接続関数読み込み
+include('./functions/connect_to_db.php');
 
 
 ?>
@@ -58,10 +60,6 @@
             </a>
         </nav>
     </header>
-
-    <main>
-
-    </main>
 
 
 </body>
