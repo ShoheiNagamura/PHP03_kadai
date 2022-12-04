@@ -1,0 +1,170 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: none;
+}
+
+body {
+    font-size: 16px;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ヘッダー 共通　ーーーーーーーーーーーーーーーーーーーーーーーーーーー*/
+header {
+    background-color: dodgerblue;
+    color: cornsilk;
+    display: flex;
+    align-items: center;
+    height: 80px;
+}
+
+header h1 {
+    margin-left: 20px;
+}
+
+nav {
+    margin: 0 0 0 auto;
+}
+
+.header-nav {
+    width: 100%;
+    display: flex;
+    list-style: none;
+    margin-right: 20px;
+}
+
+.header-nav li {
+    margin-left: 18px;
+}
+
+.signup-down,
+.login-down {
+    display: none;
+}
+
+.signup:hover .signup-down,
+.login:hover .login-down {
+    display: block;
+    position: absolute;
+    background-color: #3f8cd3;
+    padding: 10px;
+    margin: 0;
+    box-shadow: 2px 2px 8px #95949a;
+}
+
+.order-signup,
+.seller-signup,
+.order-login,
+.seller-login {
+    list-style: none;
+}
+
+.order-signup:hover,
+.seller-signup:hover,
+.order-login:hover,
+.seller-login:hover {
+    background-color: aquamarine;
+}
+
+
+/* メインーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+
+.main-area {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.main-area h2 {
+    font-size: 48px;
+    margin: 80px;
+}
+
+.hoge-area {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+.seller-items {
+    width: 30%;
+    height: 400px;
+    margin: 20px;
+    padding-bottom: 20px;
+    border: 2px solid gray;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 2%;
+    box-shadow: 6px 6px 6px 0px rgba(0, 0, 0, 0.45);
+}
+
+.seller-item {
+    margin: 5px;
+}
+
+
+/* 発注者新規登録画面　order_signup.php */
+
+.signup-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: black;
+    width: 50%;
+    /* background-color: rgb(40, 58, 136); */
+    background-color: rgba(87, 142, 230, 0.5);
+    /* opacity: 0.5; */
+    border-radius: 8px;
+    margin-top: 80px;
+    padding: 60px 0;
+}
+
+.signup-form h2 {
+    font-size: 32px;
+    margin-top: 60px;
+}
+
+
+
+.form-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 2
+}
+
+label {
+    margin: 20px;
+}
+
+input {
+    width: 600px;
+    height: 40px;
+}
+
+button {
+    width: 200px;
+    height: 40px;
+    margin: 40px;
+    background-color: rgb(235, 244, 69);
+    border: 1px solid rgb(235, 244, 69);
+    border-radius: 4px;
+}
