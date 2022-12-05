@@ -97,7 +97,7 @@ $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
     <main>
         <h2 class="jobTitle">案件内容編集</h2>
-        <form class="jobCreate" action="./jobCreate.php" method="POST">
+        <form class="jobUpdate" action="./jobUpdate.php" method="POST">
             <div>
                 <label for="jobName">案件名（必須）</label>
                 <input type="text" id="jobName" name=" jobName" placeholder="案件名をご入力ください" value="<?= $result['jobName'] ?>">
@@ -131,6 +131,7 @@ $result = $stmt->fetch(PDO::FETCH_ASSOC);
                 <textarea name="content" id="content" cols="30" rows="10" placeholder="案件の内容を詳しくご記載ください"><?= $result['content'] ?></textarea>
             </div>
             <button>更新</button>
+            <input type="hidden" name="id" value="<?= $id ?>">
         </form>
         <a href="./jobInputList.php"><button class="return">戻る</button></a>
 
