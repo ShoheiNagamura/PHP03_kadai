@@ -14,6 +14,11 @@ if (
 $name = $_POST['name'];
 $email = $_POST['email'];
 $password = $_POST['password'];
+//パスワードのハッシュ化
+$passwd_hash = password_hash($password, PASSWORD_DEFAULT);
+
+
+
 
 //関数定義ファイルから関数呼び出す
 $pdo = connect_to_db();
@@ -24,7 +29,7 @@ $stmt = $pdo->prepare($sql);
 
 $stmt->bindValue(':name', $name, PDO::PARAM_STR);
 $stmt->bindValue(':email', $email, PDO::PARAM_STR);
-$stmt->bindValue(':password', $password, PDO::PARAM_STR);
+$stmt->bindValue(':password', $passwd_hash, PDO::PARAM_STR);
 
 try {
     $status = $stmt->execute();
