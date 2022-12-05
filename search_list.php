@@ -1,15 +1,10 @@
 <?php
-//DB接続
-$dbn = 'mysql:dbname=kadai;charset=utf8mb4;port=3306;host=localhost';
-$user = 'root';
-$pwd = '';
+//DB接続関数読み込み
+include('./functions/connect_to_db.php');
 
-try {
-    $pdo = new PDO($dbn, $user, $pwd);
-} catch (PDOException $e) {
-    echo json_encode(["db error" => "{$e->getMessage()}"]);
-    exit();
-}
+
+//関数定義ファイルからDB接続関数呼び出す
+$pdo = connect_to_db();
 
 //selectのSQLクエリ用意
 $sql = 'SELECT * FROM seller_users order by update_time DESC';
@@ -102,6 +97,9 @@ foreach ($result as $record) {
                     <li>お問い合わせ</li>
                 </a>
             </ul>
+            <a href="./mypage.php">
+                <img src="./img/mypage.png" alt="マイページアイコン">
+            </a>
         </nav>
     </header>
 

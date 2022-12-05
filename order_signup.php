@@ -53,6 +53,9 @@
                     <li>お問い合わせ</li>
                 </a>
             </ul>
+            <a href="./mypage.php">
+                <img src="./img/mypage.png" alt="マイページアイコン">
+            </a>
         </nav>
     </header>
 
