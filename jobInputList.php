@@ -1,4 +1,60 @@
 <?php
+//DB接続関数読み込み
+include('./functions/connect_to_db.php');
+
+//関数定義ファイルからDB接続関数呼び出す
+$pdo = connect_to_db();
+
+//selectのSQLクエリ用意
+$sql = 'SELECT * FROM job_project order by update_time DESC';
+$stmt = $pdo->prepare($sql);
+
+//SQL実行するがまだデータの取得はできていない
+try {
+    $status = $stmt->execute();
+} catch (PDOException $e) {
+    echo json_encode(["sql error" => "{$e->getMessage()}"]);
+    exit();
+}
+
+//fectchAllでデータの取得
+if ($status == false) {
+    $error = $stmt->errorInfo();
+    exit('sqlError:' . $error[2]);
+} else {
+    // PHPではデータを取得するところまで実施
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+// echo "<pre>";
+// var_dump($result);
+// echo "</pre>";
+
+$output = "";
+
+foreach ($result as $record) {
+    $output .= "
+        <div class='job-item'>
+            <p class=''>案件名：{$record["jobName"]}</p>
+            <p class=''>募集状況：{$record["status"]}</p>
+            <p class=''>場所：{$record["place"]}</p>
+            <p class=''>日程：{$record["schedule"]}</p>
+            <p class=''>交通費：{$record["TransportationCosts"]}</p>
+            <p class=''>募集締切：{$record["deadline"]}</p>
+            <p class=''>案件の内容：{$record["content"]}</p>
+            <p class=''>掲載日：{$record["created_time"]}</p>
+            <p class=''>最終更新日：{$record["update_time"]}</p>
+            <tr>
+                <td>
+                    <a href='jobEdit.php?id={$record["id"]}'>編集</a>
+                </td>
+                <td>
+                    <a href='jobDelete.php?id={$record["id"]}'>削除</a>
+                </td>
+            </tr>
+        </div>
+    ";
+}
 
 
 ?>
@@ -65,7 +121,12 @@
 
     <main>
 
-
+        <div class="main-area">
+            <h2>登録済みの案件一覧</h2>
+            <div class="job-area">
+                <?= $output ?>
+            </div>
+        </div>
 
     </main>
 

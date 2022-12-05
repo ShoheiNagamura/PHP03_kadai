@@ -1,4 +1,36 @@
 <?php
+//DB接続関数読み込み
+include('./functions/connect_to_db.php');
+
+// var_dump($_GET);
+// exit();
+
+// id受け取り
+$id = $_GET['id'];
+
+
+// DB接続
+$pdo = connect_to_db();
+
+
+// SQL実行
+$sql = 'SELECT * FROM job_project WHERE id=:id';
+$stmt = $pdo->prepare($sql);
+$stmt->bindValue(':id', $id, PDO::PARAM_INT);
+
+try {
+    $status = $stmt->execute();
+} catch (PDOException $e) {
+    echo json_encode(["sql error" => "{$e->getMessage()}"]);
+    exit();
+}
+
+$result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+// echo '<pre>';
+// var_dump($result);
+// echo '</pre>';
+// exit();
 
 
 ?>
@@ -64,8 +96,44 @@
     </header>
 
     <main>
-
-
+        <h2 class="jobTitle">案件内容編集</h2>
+        <form class="jobUpdate" action="./jobUpdate.php" method="POST">
+            <div>
+                <label for="jobName">案件名（必須）</label>
+                <input type="text" id="jobName" name=" jobName" placeholder="案件名をご入力ください" value="<?= $result['jobName'] ?>">
+            </div>
+            <div>
+                <label for="status">募集状況（必須）</label>
+                <select name="status" id="status" value="<?= $result['status'] ?>">
+                    <option value="募集中">募集中</option>
+                    <option value="急募">急募</option>
+                    <option value="募集終了">募集終了</option>
+                </select>
+            </div>
+            <div>
+                <label for="place">場所（必須）</label>
+                <input type="text" id="place" name="place" placeholder="お仕事の場所をご入力ください" value="<?= $result['place'] ?>">
+            </div>
+            <div>
+                <label for="schedule">日程</label>
+                <input type="text" id="schedule" name="schedule" placeholder="日程をご自由にご記載ください" value="<?= $result['schedule'] ?>">
+            </div>
+            <div>
+                <label for="TransportationCosts">交通費</label>
+                <input type="text" id="TransportationCosts" name="TransportationCosts" placeholder="交通費の金額をご入力ださい" value="<?= $result['TransportationCosts'] ?>">
+            </div>
+            <div>
+                <label for="deadline">募集期限</label>
+                <input type="date" id="deadline" name="deadline" value="<?= $result['deadline'] ?>">
+            </div>
+            <div>
+                <label for="content">案件内容</label>
+                <textarea name="content" id="content" cols="30" rows="10" placeholder="案件の内容を詳しくご記載ください"><?= $result['content'] ?></textarea>
+            </div>
+            <button>更新</button>
+            <input type="hidden" name="id" value="<?= $id ?>">
+        </form>
+        <a href="./jobInputList.php"><button class="return">戻る</button></a>
 
     </main>
 
