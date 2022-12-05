@@ -49,7 +49,7 @@ foreach ($result as $record) {
                     <a href='jobEdit.php?id={$record["id"]}'>編集</a>
                 </td>
                 <td>
-                    <a href='todo_delete.php?id={$record["id"]}'>削除</a>
+                    <a href='jobDelete.php?id={$record["id"]}'>削除</a>
                 </td>
             </tr>
         </div>
