@@ -1,10 +1,6 @@
 <?php
 //DB接続関数読み込み
 include('./functions/connect_to_db.php');
-// var_dump($_POST);
-// exit();
-
-
 
 // 入力項目のチェック
 if (
@@ -21,8 +17,6 @@ if (
     exit('ParamError');
 }
 
-// var_dump($_POST);
-// exit();
 
 $id = $_POST['id'];
 $jobName = $_POST['jobName'];
