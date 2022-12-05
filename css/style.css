@@ -6,6 +6,7 @@
 
 body {
     font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 main {
@@ -182,4 +183,106 @@ button {
     background-color: rgb(235, 244, 69);
     border: 1px solid rgb(235, 244, 69);
     border-radius: 4px;
+}
+
+/* 登録済み案件一覧表示ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+
+.job-item {
+    border: 1px solid black;
+    padding: 10px 30px;
+    margin: 30px;
+    box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.35);
+}
+
+.job-head {
+    display: flex;
+}
+
+.job-headTime {
+    margin: 0 0 0 auto;
+}
+
+.jobName {
+    font-size: 30px;
+}
+
+.status {
+    background-color: yellow;
+    width: 60px;
+    border-radius: 20px;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.place {
+    margin-top: 30px;
+}
+
+.status,
+.schedule,
+.reward,
+.TransportationCosts,
+.deadline,
+.content {
+    margin-top: 10px;
+}
+
+
+.place,
+.schedule,
+.reward,
+.TransportationCosts,
+.deadline {
+    margin-left: 40px;
+}
+
+.created_time,
+.update_time {
+    color: #6B6B6B;
+}
+
+.content {
+    margin-bottom: 30px;
+    width: 800px;
+    word-wrap: break-word;
+    background-color: #F9F7F7;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.editBtn {
+    background-color: black;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 10px;
+}
+
+.deleteBtn {
+    background-color: red;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 10px;
+}
+
+
+/* 案件編集機能ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+.jobTitle {
+    font-size: 32px;
+}
+
+.jobInputAreaItem {
+    margin-top: 30px;
+}
+
+.jobInputArea-btn {
+    text-align: center;
+}
+
+.input-date {
+    width: 30px;
+}
+
+input,
+textarea {
+    font-size: 14px;
 }
