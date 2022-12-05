@@ -2,9 +2,6 @@
 //DB接続関数読み込み
 include('./functions/connect_to_db.php');
 
-// var_dump($_GET);
-// exit();
-
 // id受け取り
 $id = $_GET['id'];
 
@@ -26,12 +23,6 @@ try {
 }
 
 $result = $stmt->fetch(PDO::FETCH_ASSOC);
-
-// echo '<pre>';
-// var_dump($result);
-// echo '</pre>';
-// exit();
-
 
 ?>
 
