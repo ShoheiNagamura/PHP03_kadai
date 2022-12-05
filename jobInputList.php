@@ -35,21 +35,47 @@ $output = "";
 foreach ($result as $record) {
     $output .= "
         <div class='job-item'>
-            <p class=''>案件名：{$record["jobName"]}</p>
-            <p class=''>募集状況：{$record["status"]}</p>
-            <p class=''>場所：{$record["place"]}</p>
-            <p class=''>日程：{$record["schedule"]}</p>
-            <p class=''>交通費：{$record["TransportationCosts"]}</p>
-            <p class=''>募集締切：{$record["deadline"]}</p>
-            <p class=''>案件の内容：{$record["content"]}</p>
-            <p class=''>掲載日：{$record["created_time"]}</p>
-            <p class=''>最終更新日：{$record["update_time"]}</p>
-            <tr>
+            <div class='job-head'>
+                <div class='jobName'>
+                    <p class=''>{$record["jobName"]}</p>
+                </div>
+                <div class='job-headTime'>
+                    <div class='created_time'>
+                        <p class=''>掲載日：{$record["created_time"]}</p>
+                    </div>
+                    <div class='update_time'>
+                        <p class=''>最終更新日：{$record["update_time"]}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class='status'>
+                <p class=''>{$record["status"]}</p>
+            </div>
+            <div class='place'>
+                <p class=''>場所：{$record["place"]}</p>
+            </div>
+            <div class='schedule'>
+                <p class=''>日程：{$record["schedule"]}</p>
+            </div>
+            <div class='reward'>
+                <p class=''>報酬：{$record["reward"]}円(税込)</p>
+            </div>
+            <div class='TransportationCosts'>
+                <p class=''>交通費：{$record["TransportationCosts"]}</p>
+            </div>
+            <div class='deadline'>
+                <p class=''>募集締切：{$record["deadline"]}</p>
+            </div>
+            <div class='content'>
+                <p class=''>案件の内容：{$record["content"]}</p>
+            </div>
+            <tr class='Btn-area'>
                 <td>
-                    <a href='jobEdit.php?id={$record["id"]}'>編集</a>
+                    <a class='editBtn' href='jobEdit.php?id={$record["id"]}'>編集</a>
                 </td>
                 <td>
-                    <a href='jobDelete.php?id={$record["id"]}'>削除</a>
+                    <a class='deleteBtn' href='jobDelete.php?id={$record["id"]}'>削除</a>
                 </td>
             </tr>
         </div>
@@ -66,6 +92,9 @@ foreach ($result as $record) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Zen+Kurenaido&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
     <title>PHP課題02</title>
 </head>

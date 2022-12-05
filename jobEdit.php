@@ -33,6 +33,9 @@ $result = $stmt->fetch(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Zen+Kurenaido&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
     <title>PHP課題02</title>
 </head>
@@ -89,11 +92,11 @@ $result = $stmt->fetch(PDO::FETCH_ASSOC);
     <main>
         <h2 class="jobTitle">案件内容編集</h2>
         <form class="jobUpdate" action="./jobUpdate.php" method="POST">
-            <div>
+            <div class="jobNameArea jobInputAreaItem">
                 <label for="jobName">案件名（必須）</label>
                 <input type="text" id="jobName" name=" jobName" placeholder="案件名をご入力ください" value="<?= $result['jobName'] ?>">
             </div>
-            <div>
+            <div class="statusArea jobInputAreaItem">
                 <label for="status">募集状況（必須）</label>
                 <select name="status" id="status" value="<?= $result['status'] ?>">
                     <option value="募集中">募集中</option>
@@ -101,27 +104,31 @@ $result = $stmt->fetch(PDO::FETCH_ASSOC);
                     <option value="募集終了">募集終了</option>
                 </select>
             </div>
-            <div>
+            <div class="placeArea jobInputAreaItem">
                 <label for="place">場所（必須）</label>
                 <input type="text" id="place" name="place" placeholder="お仕事の場所をご入力ください" value="<?= $result['place'] ?>">
             </div>
-            <div>
+            <div class="scheduleArea jobInputAreaItem">
                 <label for="schedule">日程</label>
                 <input type="text" id="schedule" name="schedule" placeholder="日程をご自由にご記載ください" value="<?= $result['schedule'] ?>">
             </div>
-            <div>
+            <div class="rewardArea jobInputAreaItem">
+                <label for="reward">報酬</label>
+                <input type="text" id="reward" name="reward" placeholder="報酬金額を入力してださい" value="<?= $result['reward'] ?>">
+            </div>
+            <div class="TransportationCostsArea jobInputAreaItem">
                 <label for="TransportationCosts">交通費</label>
                 <input type="text" id="TransportationCosts" name="TransportationCosts" placeholder="交通費の金額をご入力ださい" value="<?= $result['TransportationCosts'] ?>">
             </div>
-            <div>
+            <div class="deadlineArea jobInputAreaItem">
                 <label for="deadline">募集期限</label>
                 <input type="date" id="deadline" name="deadline" value="<?= $result['deadline'] ?>">
             </div>
-            <div>
+            <div class="contentArea jobInputAreaItem">
                 <label for="content">案件内容</label>
-                <textarea name="content" id="content" cols="30" rows="10" placeholder="案件の内容を詳しくご記載ください"><?= $result['content'] ?></textarea>
+                <textarea name="content" id="content" cols="70" rows="10" placeholder="案件の内容を詳しくご記載ください"><?= $result['content'] ?></textarea>
             </div>
-            <button>更新</button>
+            <button class="jobInputArea-btn">更新</button>
             <input type="hidden" name="id" value="<?= $id ?>">
         </form>
         <a href="./jobInputList.php"><button class="return">戻る</button></a>

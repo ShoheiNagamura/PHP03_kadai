@@ -6,6 +6,7 @@ include('./functions/connect_to_db.php');
 if (
     !isset($_POST['jobName']) || $_POST['jobName'] == '' ||
     !isset($_POST['status']) || $_POST['status'] == '' ||
+    !isset($_POST['reward']) || $_POST['reward'] == '' ||
     !isset($_POST['place']) || $_POST['place'] == '' ||
     !isset($_POST['schedule']) || $_POST['schedule'] == '' ||
     !isset($_POST['TransportationCosts']) || $_POST['TransportationCosts'] == '' ||
@@ -21,6 +22,7 @@ if (
 $id = $_POST['id'];
 $jobName = $_POST['jobName'];
 $status = $_POST['status'];
+$reward = $_POST['reward'];
 $place = $_POST['place'];
 $schedule = $_POST['schedule'];
 $TransportationCosts = $_POST['TransportationCosts'];
@@ -32,13 +34,14 @@ $content = $_POST['content'];
 $pdo = connect_to_db();
 
 // SQL実行
-$sql = 'UPDATE job_project SET jobName=:jobName, status=:status, place=:place, schedule=:schedule, TransportationCosts=:TransportationCosts, deadline=:deadline, content=:content, update_time=now() WHERE id=:id';
+$sql = 'UPDATE job_project SET jobName=:jobName, status=:status, reward=:reward, place=:place, schedule=:schedule, TransportationCosts=:TransportationCosts, deadline=:deadline, content=:content, update_time=now() WHERE id=:id';
 
 
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':id', $id, PDO::PARAM_INT);
 $stmt->bindValue(':jobName', $jobName, PDO::PARAM_STR);
 $stmt->bindValue(':status', $status, PDO::PARAM_STR);
+$stmt->bindValue(':reward', $reward, PDO::PARAM_INT);
 $stmt->bindValue(':place', $place, PDO::PARAM_STR);
 $stmt->bindValue(':schedule', $schedule, PDO::PARAM_STR);
 $stmt->bindValue(':TransportationCosts', $TransportationCosts, PDO::PARAM_STR);
