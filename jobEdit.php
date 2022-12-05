@@ -122,7 +122,7 @@ $result = $stmt->fetch(PDO::FETCH_ASSOC);
             </div>
             <div class="deadlineArea jobInputAreaItem">
                 <label for="deadline">募集期限</label>
-                <input type="date" id="deadline" name="deadline" value="<?= $result['deadline'] ?>">
+                <input class="input-date" type="date" id="deadline" name="deadline" value="<?= $result['deadline'] ?>">
             </div>
             <div class="contentArea jobInputAreaItem">
                 <label for="content">案件内容</label>
