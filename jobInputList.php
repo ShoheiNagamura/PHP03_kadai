@@ -46,12 +46,16 @@
                         </a>
                     </ul>
                 </li>
-                <a href="./question.php">
-                    <li>よくある質問</li>
-                </a>
-                <a href="./contact.php">
-                    <li>お問い合わせ</li>
-                </a>
+                <li class="job">案件管理
+                    <ul class="job-down">
+                        <a href="./jobInput.php">
+                            <li class="job-input">案件登録</li>
+                        </a>
+                        <a href="./jobInputList.php">
+                            <li class="job-list">案件管理一覧</li>
+                        </a>
+                    </ul>
+                </li>
             </ul>
             <a href="./mypage.php">
                 <img src="./img/mypage.png" alt="マイページアイコン">
@@ -60,6 +64,8 @@
     </header>
 
     <main>
+
+
 
     </main>
 
