@@ -52,12 +52,14 @@ nav {
 }
 
 .signup-down,
-.login-down {
+.login-down,
+.job-down {
     display: none;
 }
 
 .signup:hover .signup-down,
-.login:hover .login-down {
+.login:hover .login-down,
+.job:hover .job-down {
     display: block;
     position: absolute;
     background-color: #3f8cd3;
@@ -69,14 +71,18 @@ nav {
 .order-signup,
 .seller-signup,
 .order-login,
-.seller-login {
+.seller-login,
+.job-input,
+.job-list {
     list-style: none;
 }
 
 .order-signup:hover,
 .seller-signup:hover,
 .order-login:hover,
-.seller-login:hover {
+.seller-login:hover,
+.job-input:hover,
+.job-list:hover {
     background-color: aquamarine;
 }
 

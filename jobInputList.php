@@ -1,31 +1,5 @@
 <?php
-//DB接続関数読み込み
-include('./functions/connect_to_db.php');
 
-// id受け取り
-$id = $_GET['id'];
-
-// DB接続
-$pdo = connect_to_db();
-
-// SQL実行
-$sql = 'SELECT * FROM seller_users WHERE id=:id';
-$stmt = $pdo->prepare($sql);
-$stmt->bindValue(':id', $id, PDO::PARAM_INT);
-
-try {
-    $status = $stmt->execute();
-} catch (PDOException $e) {
-    echo json_encode(["sql error" => "{$e->getMessage()}"]);
-    exit();
-}
-
-$result = $stmt->fetch(PDO::FETCH_ASSOC);
-
-echo '<pre>';
-var_dump($result);
-echo '</pre>';
-exit();
 
 ?>
 
@@ -89,14 +63,11 @@ exit();
         </nav>
     </header>
 
-    <div class="mypage-main">
-        <h2>マイページ</h2>
-        <button>プロフィール編集</button>
-        <div class="mypage-display">
+    <main>
 
-        </div>
 
-    </div>
+
+    </main>
 
 
 </body>
