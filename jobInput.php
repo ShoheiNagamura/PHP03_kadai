@@ -1,4 +1,6 @@
 <?php
+include('./functions/check_session_id');
+
 
 
 ?>

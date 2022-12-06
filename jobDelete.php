@@ -4,6 +4,8 @@ $id = $_GET['id'];
 
 // DB接続
 include('./functions/connect_to_db.php');
+include('./functions/check_session_id');
+
 $pdo = connect_to_db();
 
 

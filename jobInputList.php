@@ -1,6 +1,8 @@
 <?php
 //DB接続関数読み込み
 include('./functions/connect_to_db.php');
+include('./functions/check_session_id');
+
 
 //関数定義ファイルからDB接続関数呼び出す
 $pdo = connect_to_db();
